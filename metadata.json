@@ -1,0 +1,6 @@
+{
+  "name": "Crimson Silence",
+  "description": "An interactive, trauma-informed digital memorial and educational exhibit dedicated to the history of global terror attacks, victim remembrance, and healing.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
