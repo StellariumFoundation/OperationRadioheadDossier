@@ -9,12 +9,6 @@ on:
 
 permissions:
   contents: write
-  pages: write
-  id-token: write
-
-concurrency:
-  group: "pages"
-  cancel-in-progress: false
 
 jobs:
   lint:
@@ -53,23 +47,12 @@ jobs:
       - name: Build Web App
         run: bun run build
 
-      - name: Upload dist Artifact
-        uses: actions/upload-pages-artifact@v5
+      - name: Upload Web Artifact
+        uses: actions/upload-artifact@v7
         with:
+          name: web-build
           path: ./dist
-
-  deploy-pages:
-    name: Deploy to GitHub Pages
-    if: github.ref == 'refs/heads/main' || github.ref == 'refs/heads/master'
-    needs: [build-web]
-    runs-on: ubuntu-latest
-    environment:
-      name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
-    steps:
-      - name: Deploy to GitHub Pages
-        id: deployment
-        uses: actions/deploy-pages@v5
+          if-no-files-found: error
 
   build-android-capacitor:
     name: Build Android (APK & AAB)
@@ -227,7 +210,7 @@ jobs:
       - name: Download Web Artifact
         uses: actions/download-artifact@v8
         with:
-          name: github-pages
+          name: web-build
           path: dist
 
       - name: Download Android APK/AAB
@@ -286,7 +269,6 @@ jobs:
 
             | Platform | Download |
             |----------|----------|
-            | 🌐 **Web / PWA** | Deployed to GitHub Pages |
             | 📱 **Android** | [APK](https://github.com/${{ github.repository }}/releases/download/${{ steps.version.outputs.app_version }}/OperationRadiohead-Android-${{ steps.version.outputs.app_version }}.apk) · [AAB](https://github.com/${{ github.repository }}/releases/download/${{ steps.version.outputs.app_version }}/OperationRadiohead-Android-${{ steps.version.outputs.app_version }}.aab) |
             | 🍏 **iOS** (Simulator) | [ZIP](https://github.com/${{ github.repository }}/releases/download/${{ steps.version.outputs.app_version }}/OperationRadiohead-iOS-Simulator.zip) |
 
