@@ -185,7 +185,7 @@ export default function ContactSection() {
           <>
             <button
               onClick={() => callClient.startCall()}
-              disabled={callState === 'calling'}
+              disabled={false}
               className="w-full bg-emerald-500 text-black py-3 md:py-4 rounded-xl flex items-center justify-center gap-2 uppercase tracking-wider text-xs md:text-sm hover:bg-emerald-400 disabled:opacity-50 transition-all active:scale-[0.98] cursor-pointer"
             >
               <Phone size={18} /> Call Owner
