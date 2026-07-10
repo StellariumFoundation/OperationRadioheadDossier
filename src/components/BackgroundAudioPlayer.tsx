@@ -1,6 +1,6 @@
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useEffect, useRef } from 'react';
 
-const trackModules = import.meta.glob<string>('../assets/music/*.opus', { eager: true, as: 'url' });
+const trackModules = import.meta.glob<string>('../assets/music/*.opus', { eager: true, query: '?url', import: 'default' });
 
 function shuffle<T>(arr: T[]): T[] {
   const a = [...arr];
@@ -13,66 +13,97 @@ function shuffle<T>(arr: T[]): T[] {
 
 const audioTracks = shuffle(Object.values(trackModules));
 
+let ctx: AudioContext | null = null;
+function getCtx(): AudioContext {
+  if (!ctx) ctx = new AudioContext();
+  return ctx;
+}
+
 export default function BackgroundAudioPlayer() {
-  const [currentTrackIdx, setCurrentTrackIdx] = useState(0);
-  const audioRef = useRef<HTMLAudioElement | null>(null);
+  const sourceRef = useRef<AudioBufferSourceNode | null>(null);
+  const gainRef = useRef<GainNode | null>(null);
+  const idxRef = useRef(0);
+  const unlockedRef = useRef(false);
 
   useEffect(() => {
-    const url = audioTracks[currentTrackIdx];
-    if (!url) return;
+    let cancelled = false;
 
-    const audio = new Audio(url);
-    audio.preload = 'auto';
-    audio.loop = false;
-    audio.volume = 0.45;
-    audioRef.current = audio;
+    async function playTrack() {
+      if (cancelled) return;
+      const url = audioTracks[idxRef.current];
+      if (!url) return;
 
-    const handleTrackEnded = () => {
-      const nextIdx = (currentTrackIdx + 1) % audioTracks.length;
-      setCurrentTrackIdx(nextIdx);
-    };
+      const context = getCtx();
 
-    audio.addEventListener('ended', handleTrackEnded);
+      // Resume context if suspended (autoplay policy)
+      if (context.state === 'suspended') {
+        await context.resume();
+      }
 
-    let interactionCleanup: (() => void) | null = null;
+      try {
+        const resp = await fetch(url);
+        const arrayBuffer = await resp.arrayBuffer();
+        if (cancelled) return;
 
-    // Try unmuted first — works on browsers with prior site engagement
-    audio.play().catch(() => {
-      // Autoplay blocked — play muted, unmute on first user interaction
-      audio.muted = true;
-      audio.currentTime = 0;
-      audio.play().catch(() => {});
+        const audioBuffer = await context.decodeAudioData(arrayBuffer);
+        if (cancelled) return;
 
-      const handleFirstInteraction = () => {
-        if (audioRef.current) {
-          audioRef.current.muted = false;
-          audioRef.current.play().catch(() => {});
+        // Stop previous
+        try { sourceRef.current?.stop(); } catch {}
+        sourceRef.current?.disconnect();
+
+        const source = context.createBufferSource();
+        source.buffer = audioBuffer;
+
+        const gain = context.createGain();
+        gain.gain.value = 0.45;
+        gainRef.current = gain;
+
+        source.connect(gain);
+        gain.connect(context.destination);
+        source.start(0);
+        sourceRef.current = source;
+
+        // Schedule next track
+        source.onended = () => {
+          if (cancelled) return;
+          idxRef.current = (idxRef.current + 1) % audioTracks.length;
+          playTrack();
+        };
+      } catch {
+        // Skip to next on error
+        if (!cancelled) {
+          idxRef.current = (idxRef.current + 1) % audioTracks.length;
+          playTrack();
         }
-        cleanup();
-      };
+      }
+    }
 
-      const cleanup = () => {
-        window.removeEventListener('click', handleFirstInteraction);
-        window.removeEventListener('keydown', handleFirstInteraction);
-        window.removeEventListener('touchstart', handleFirstInteraction);
-        interactionCleanup = null;
-      };
+    // Unlock audio context on first user interaction
+    function unlock() {
+      if (unlockedRef.current) return;
+      unlockedRef.current = true;
+      const c = getCtx();
+      if (c.state === 'suspended') c.resume();
+      window.removeEventListener('click', unlock);
+      window.removeEventListener('keydown', unlock);
+      window.removeEventListener('touchstart', unlock);
+      playTrack();
+    }
 
-      window.addEventListener('click', handleFirstInteraction);
-      window.addEventListener('keydown', handleFirstInteraction);
-      window.addEventListener('touchstart', handleFirstInteraction);
-      interactionCleanup = cleanup;
+    // Try immediate play
+    playTrack().catch(() => {
+      window.addEventListener('click', unlock);
+      window.addEventListener('keydown', unlock);
+      window.addEventListener('touchstart', unlock);
     });
 
     return () => {
-      audio.removeEventListener('ended', handleTrackEnded);
-      audio.pause();
-      if (interactionCleanup) interactionCleanup();
-      if (audioRef.current) {
-        audioRef.current = null;
-      }
+      cancelled = true;
+      try { sourceRef.current?.stop(); } catch {}
+      sourceRef.current?.disconnect();
     };
-  }, [currentTrackIdx]);
+  }, []);
 
   return null;
 }
