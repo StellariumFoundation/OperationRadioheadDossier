@@ -238,69 +238,249 @@ export default function StellariumSection() {
             exit={{ opacity: 0, x: 10 }}
             className="space-y-6 w-full"
           >
-            {/* The Ultimate Law Card */}
-            <div className="relative overflow-hidden bg-gradient-to-r from-zinc-950 via-zinc-950 to-red-950/15 border border-zinc-900 p-6 md:p-8 rounded-2xl shadow-xl space-y-4 text-center flex flex-col items-center">
-              <div className="absolute right-0 top-0 translate-x-12 -translate-y-12 w-64 h-64 bg-red-900/5 rounded-full filter blur-3xl pointer-events-none" />
-              
-              <div className="space-y-2 text-center">
-                <span className="font-mono text-[9px] text-red-500 uppercase tracking-widest block font-bold text-center">The Core Operational Law</span>
-                <h3 className="text-2xl font-bold font-mono tracking-wide text-zinc-100 uppercase text-center">
-                  "Do Good, Make Money, Have Fun."
-                </h3>
-              </div>
-              <p className="text-xs text-zinc-400 leading-relaxed max-w-3xl text-center">
-                The official guiding blueprint co-founded by John Victor. It dictates that wealth is the single most important metric to generate, but it must walk hand-in-hand with absolute peacemaking, benevolence, and collaborative synergy. Here, doing good, unlocking liquidity, and enjoying the beauty of creation weave into a single, vibrant thread.
-              </p>
+            <div className="bg-zinc-950/90 backdrop-blur-sm border border-zinc-800 p-6 md:p-10 rounded-2xl shadow-2xl shadow-black/50 w-full overflow-x-auto">
+              <div className="space-y-6 w-full text-center flex flex-col items-center">
+                <h2 className="font-cinzel text-lg md:text-xl font-bold text-zinc-100 tracking-wider text-center border-b border-zinc-800 pb-4 w-full">
+                  The Stellarium Guide: Principles, Governance, and The Path of the Honest Builder
+                </h2>
 
-              <div className="grid grid-cols-1 md:grid-cols-3 gap-4 pt-4 border-t border-zinc-900 w-full text-center">
-                <div className="bg-zinc-900/30 p-4 rounded-xl border border-zinc-900 space-y-1.5 text-center flex flex-col items-center justify-center">
-                  <div className="flex items-center gap-2 text-rose-400 font-mono text-xs font-bold uppercase tracking-wider justify-center">
-                    <span className="w-1.5 h-1.5 rounded-full bg-rose-500" />
-                    Do Good
+                <p className="text-xs text-zinc-400 leading-relaxed text-center max-w-4xl">
+                  Welcome to the definitive guide to the <span className="text-zinc-200 font-semibold">Stellarium</span>. This document outlines our systemic architecture, our core ethical standards, and our operational philosophy. It is designed to serve as both a manifesto and an operational manual for individuals, businesses, and communities looking to navigate the transition into an era of technological abundance.
+                </p>
+
+                <p className="text-xs text-zinc-400 leading-relaxed text-center max-w-4xl">
+                  The Stellarium is not a political movement, nor is it a religious organization. It is a practical, results-oriented global alliance built on the understanding that human beings thrive when they collaborate under transparent principles, pool resources strategically, and commit to one another's success.
+                </p>
+
+                <hr className="border-zinc-800 w-full max-w-2xl" />
+
+                <h2 className="font-cinzel text-base font-bold text-zinc-100 tracking-wider text-center">
+                  1. The Stellarium Blueprint
+                </h2>
+
+                <p className="text-xs text-zinc-400 leading-relaxed text-center max-w-4xl">
+                  The <span className="text-zinc-200 font-semibold">Stellarium Blueprint</span> is a comprehensive systems-architecture designed to decouple human survival from manual toil, optimize corporate efficiency, and stabilize regional economies. The blueprint is divided into three key areas of technological and policy integration:
+                </p>
+
+                <div className="space-y-6 w-full max-w-4xl">
+                  <div className="bg-zinc-900/20 border border-zinc-900 rounded-xl p-5 space-y-3 text-center flex flex-col items-center">
+                    <h3 className="font-mono text-xs font-bold text-red-400 uppercase tracking-wider text-center">
+                      A. Macroeconomic Engineering (Wealth Activism)
+                    </h3>
+                    <p className="text-xs text-zinc-400 leading-relaxed text-center">
+                      We analyze cities, industries, and national markets as physical systems of inputs and outputs. Through <span className="text-zinc-200 font-semibold">Wealth Activism</span>, we actively identify missed opportunities and structural bottlenecks to wealth creation. Our strategic policy frameworks include:
+                    </p>
+                    <ul className="space-y-2 text-center list-none w-full">
+                      <li className="text-xs text-zinc-400 leading-relaxed text-center">
+                        <span className="text-zinc-200 font-semibold">The Subsidized Jobs Initiative:</span> A public-private partnership model designed to preserve workforce utility, ensure full employment, and maintain human dignity during the transition to an automated economy.
+                      </li>
+                      <li className="text-xs text-zinc-400 leading-relaxed text-center">
+                        <span className="text-zinc-200 font-semibold">The Policy of Affordability:</span> The strategic engineering of state-owned or municipal enterprises in essential sectors (energy, basic food production, and housing) to deliver foundational goods "at cost," thereby maximizing citizens' discretionary income.
+                      </li>
+                    </ul>
                   </div>
-                  <p className="text-[11px] text-zinc-400 text-center">
-                    A commitment to benevolence and fairness. Universal access to housing, healthcare, and education is not a privilege, but the baseline foundation of a strong society.
-                  </p>
+
+                  <div className="bg-zinc-900/20 border border-zinc-900 rounded-xl p-5 space-y-3 text-center flex flex-col items-center">
+                    <h3 className="font-mono text-xs font-bold text-red-400 uppercase tracking-wider text-center">
+                      B. Digital and Physical Automation (The "Water" Suite)
+                    </h3>
+                    <p className="text-xs text-zinc-400 leading-relaxed text-center">
+                      We build and deploy scalable, multi-agent artificial intelligence and teleoperated robotics to replace routine and hazardous labor:
+                    </p>
+                    <ul className="space-y-2 text-center list-none w-full">
+                      <li className="text-xs text-zinc-400 leading-relaxed text-center">
+                        <span className="text-zinc-200 font-semibold">Water AI:</span> A unified supermodel orchestrator designed to route digital workflows to the most efficient domain-specific AI models in real-time.
+                      </li>
+                      <li className="text-xs text-zinc-400 leading-relaxed text-center">
+                        <span className="text-zinc-200 font-semibold">Water Company:</span> An enterprise operating system that enables organizations to deploy and manage entire corporate hierarchies staffed by specialized, collaborating AI agents.
+                      </li>
+                      <li className="text-xs text-zinc-400 leading-relaxed text-center">
+                        <span className="text-zinc-200 font-semibold">Water Robotics:</span> A VR-teleoperation system allowing remote operators to control bipedal or wheeled humanoid robots in hazardous or labor-scarce environments.
+                      </li>
+                      <li className="text-xs text-zinc-400 leading-relaxed text-center">
+                        <span className="text-zinc-200 font-semibold">Water AI Fluid:</span> A decentralized, peer-to-peer computing grid that slashes the inference costs of running autonomous agents by utilizing idle compute resources globally.
+                      </li>
+                    </ul>
+                  </div>
+
+                  <div className="bg-zinc-900/20 border border-zinc-900 rounded-xl p-5 space-y-3 text-center flex flex-col items-center">
+                    <h3 className="font-mono text-xs font-bold text-red-400 uppercase tracking-wider text-center">
+                      C. Social &amp; Educational Infrastructure
+                    </h3>
+                    <p className="text-xs text-zinc-400 leading-relaxed text-center">
+                      We develop tools to minimize social friction and democratize access to core human needs:
+                    </p>
+                    <ul className="space-y-2 text-center list-none w-full">
+                      <li className="text-xs text-zinc-400 leading-relaxed text-center">
+                        <span className="text-zinc-200 font-semibold">Water Classroom:</span> A gamified, global online school designed to provide personalized education from K-12 to undergraduate levels.
+                      </li>
+                      <li className="text-xs text-zinc-400 leading-relaxed text-center">
+                        <span className="text-zinc-200 font-semibold">Water Party:</span> A cross-platform party-matching application designed to foster local connection, community building, and coordinated social experiences through safe, curated event-hosting.
+                      </li>
+                    </ul>
+                  </div>
                 </div>
 
-                <div className="bg-zinc-900/30 p-4 rounded-xl border border-zinc-900 space-y-1.5 text-center flex flex-col items-center justify-center">
-                  <div className="flex items-center gap-2 text-amber-400 font-mono text-xs font-bold uppercase tracking-wider justify-center">
-                    <span className="w-1.5 h-1.5 rounded-full bg-amber-500" />
-                    Make Money
+                <hr className="border-zinc-800 w-full max-w-2xl" />
+
+                <h2 className="font-cinzel text-base font-bold text-zinc-100 tracking-wider text-center">
+                  2. The Seven Principles
+                </h2>
+
+                <p className="text-xs text-zinc-400 leading-relaxed text-center max-w-4xl">
+                  The Stellarium is built upon seven immutable axioms that guide every decision, venture, and policy we advocate. These principles are not suggestions; they are the operating system of our community.
+                </p>
+
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-3 w-full max-w-4xl">
+                  <div className="bg-zinc-900/20 border border-zinc-900 rounded-xl p-4 space-y-1.5 text-center flex flex-col items-center">
+                    <span className="font-mono text-[10px] font-bold text-red-500 uppercase tracking-wider text-center">Principle I: Individual Sovereignty</span>
+                    <p className="text-xs text-zinc-400 leading-relaxed text-center">Each individual possesses the innate ability to thrive on their own interests and pursuits. We reject paternalistic control and honor personal autonomy.</p>
                   </div>
-                  <p className="text-[11px] text-zinc-400 text-center">
-                    Wealth is generated through service, specialized engineering, and joint AI ventures. We back bold risk-taking builders over stagnant corporate gatekeepers.
-                  </p>
+                  <div className="bg-zinc-900/20 border border-zinc-900 rounded-xl p-4 space-y-1.5 text-center flex flex-col items-center">
+                    <span className="font-mono text-[10px] font-bold text-red-500 uppercase tracking-wider text-center">Principle II: Wealth as the Primary Metric</span>
+                    <p className="text-xs text-zinc-400 leading-relaxed text-center">Wealth is the most reliable measure of value creation, productivity, and societal well-being. A wealthy society is one where individuals are free from the struggle for survival.</p>
+                  </div>
+                  <div className="bg-zinc-900/20 border border-zinc-900 rounded-xl p-4 space-y-1.5 text-center flex flex-col items-center">
+                    <span className="font-mono text-[10px] font-bold text-red-500 uppercase tracking-wider text-center">Principle III: Active Peacemaking</span>
+                    <p className="text-xs text-zinc-400 leading-relaxed text-center">The duty of everyone is to be a peacemaker. Peace and wealth walk in one accord; conflict destroys value, while stability generates prosperity.</p>
+                  </div>
+                  <div className="bg-zinc-900/20 border border-zinc-900 rounded-xl p-4 space-y-1.5 text-center flex flex-col items-center">
+                    <span className="font-mono text-[10px] font-bold text-red-500 uppercase tracking-wider text-center">Principle IV: Anti-Conflict Posture</span>
+                    <p className="text-xs text-zinc-400 leading-relaxed text-center">War and destructive conflict are poison to everything we build. We reject zero-sum competition and prioritize mutually beneficial, win-win collaborations.</p>
+                  </div>
+                  <div className="bg-zinc-900/20 border border-zinc-900 rounded-xl p-4 space-y-1.5 text-center flex flex-col items-center">
+                    <span className="font-mono text-[10px] font-bold text-red-500 uppercase tracking-wider text-center">Principle V: Value Through Service</span>
+                    <p className="text-xs text-zinc-400 leading-relaxed text-center">Improving and serving people is the direct mechanism of wealth creation. We compete to see who can create the most value for others.</p>
+                  </div>
+                  <div className="bg-zinc-900/20 border border-zinc-900 rounded-xl p-4 space-y-1.5 text-center flex flex-col items-center">
+                    <span className="font-mono text-[10px] font-bold text-red-500 uppercase tracking-wider text-center">Principle VI: Human Creativity as the Engine</span>
+                    <p className="text-xs text-zinc-400 leading-relaxed text-center">Human ingenuity drives innovation. We invest in creativity, encourage experimentation, and build spaces where diverse minds can collaborate.</p>
+                  </div>
+                  <div className="bg-zinc-900/20 border border-zinc-900 rounded-xl p-4 space-y-1.5 md:col-span-2 text-center flex flex-col items-center">
+                    <span className="font-mono text-[10px] font-bold text-red-500 uppercase tracking-wider text-center">Principle VII: The Law of Integration</span>
+                    <p className="text-xs text-zinc-400 leading-relaxed text-center">Our core operational directive is: <span className="text-zinc-200 font-semibold">Do Good, Make Money, Have Fun.</span></p>
+                  </div>
                 </div>
 
-                <div className="bg-zinc-900/30 p-4 rounded-xl border border-zinc-900 space-y-1.5 text-center flex flex-col items-center justify-center">
-                  <div className="flex items-center gap-2 text-teal-400 font-mono text-xs font-bold uppercase tracking-wider justify-center">
-                    <span className="w-1.5 h-1.5 rounded-full bg-teal-500" />
-                    Have Fun
-                  </div>
-                  <p className="text-[11px] text-zinc-400 text-center">
-                    Freedom means living your way—exploring the wild wonders of the world, building community synergy, and being with friends under a sky unburdened by repetitive work.
+                <div className="bg-zinc-900/30 border border-red-900/20 rounded-xl p-5 space-y-3 text-center flex flex-col items-center w-full max-w-4xl">
+                  <h3 className="font-mono text-xs font-bold text-red-400 uppercase tracking-wider text-center">The Law of Integration Explained</h3>
+                  <p className="text-xs text-zinc-400 leading-relaxed text-center">
+                    A true Stellarium venture or lifestyle does not separate these three imperatives. They must be executed simultaneously:
                   </p>
+                  <ul className="space-y-2 text-center list-none w-full">
+                    <li className="text-xs text-zinc-400 leading-relaxed text-center">
+                      <span className="text-zinc-200 font-semibold">Do Good:</span> All initiatives must be beneficial to the collective and maintain absolute integrity.
+                    </li>
+                    <li className="text-xs text-zinc-400 leading-relaxed text-center">
+                      <span className="text-zinc-200 font-semibold">Make Money:</span> All systems must be economically sustainable and profitable.
+                    </li>
+                    <li className="text-xs text-zinc-400 leading-relaxed text-center">
+                      <span className="text-zinc-200 font-semibold">Have Fun:</span> The process of creation and connection must be joyful, rejecting grim, joyless drudgery.
+                    </li>
+                  </ul>
                 </div>
-              </div>
-            </div>
 
-            {/* Elevation to Eden Panel */}
-            <div className="bg-zinc-950/80 border border-zinc-900 p-6 md:p-8 rounded-2xl space-y-4 w-full">
-              <div className="flex items-center gap-2 justify-center">
-                <Globe className="text-red-500" size={16} />
-                <span className="font-mono text-xs font-bold uppercase tracking-widest text-zinc-200">Elevation to Eden</span>
-              </div>
-              <h4 className="text-md font-semibold text-zinc-100 text-center">Ushering Humanity into a Post-Scarcity Abundance Society</h4>
-              <p className="text-xs text-zinc-400 leading-relaxed text-center">
-                "Elevation to Eden" is the strategic transition of human civilization. By unleashing advanced artificial intelligence, automated machinery, and humanoid robotics, we can permanently decouple survival needs from the toll of human hands. 
-              </p>
-              <p className="text-xs text-zinc-400 leading-relaxed text-center">
-                Repetitive, dangerous, and tiring labor is handled entirely by electromechanical organisms (AI agents and robots). In this landscape, the very definition of "work" transforms: instead of a daily struggle to survive, it becomes an act of passion, artistic expression, and localized problem solving.
-              </p>
-              <div className="bg-red-950/10 border border-red-900/25 p-3 rounded-xl max-w-xl mx-auto">
-                <p className="font-mono text-[10px] text-red-400 font-bold uppercase text-center">The Edenic Inversion:</p>
-                <p className="text-[11px] text-zinc-400 italic text-center">"We do not retreat to paradise; we actively construct it using technology, incentives, and good leadership."</p>
+                <hr className="border-zinc-800 w-full max-w-2xl" />
+
+                <h2 className="font-cinzel text-base font-bold text-zinc-100 tracking-wider text-center">
+                  3. The Universal Standard
+                </h2>
+
+                <p className="text-xs text-zinc-400 leading-relaxed text-center max-w-4xl">
+                  The <span className="text-zinc-200 font-semibold">Universal Standard</span> is our minimal, unshakeable ethical code. It serves as the baseline boundary for civilized human collaboration across all multicultural backgrounds. Any individual or entity that violates these boundaries is immediately excluded from our network.
+                </p>
+
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 w-full max-w-4xl">
+                  <div className="bg-zinc-900/20 border border-zinc-900 rounded-xl p-4 space-y-1.5 text-center flex flex-col items-center">
+                    <span className="font-mono text-[10px] font-bold text-red-500 text-center">1. Do Not Kill</span>
+                    <p className="text-xs text-zinc-400 leading-relaxed text-center">Human life is sacred. We prohibit murder, violence, and physical harm.</p>
+                  </div>
+                  <div className="bg-zinc-900/20 border border-zinc-900 rounded-xl p-4 space-y-1.5 text-center flex flex-col items-center">
+                    <span className="font-mono text-[10px] font-bold text-red-500 text-center">2. Do Not Steal</span>
+                    <p className="text-xs text-zinc-400 leading-relaxed text-center">Property rights are fundamental. We prohibit outright theft, fraud, embezzlement, scams, and coercion.</p>
+                  </div>
+                  <div className="bg-zinc-900/20 border border-zinc-900 rounded-xl p-4 space-y-1.5 text-center flex flex-col items-center">
+                    <span className="font-mono text-[10px] font-bold text-red-500 text-center">3. Do Not Bear False Witness</span>
+                    <p className="text-xs text-zinc-400 leading-relaxed text-center">Truth is the currency of trust. We prohibit slander, deception, and malicious dishonesty.</p>
+                  </div>
+                  <div className="bg-zinc-900/20 border border-zinc-900 rounded-xl p-4 space-y-1.5 text-center flex flex-col items-center">
+                    <span className="font-mono text-[10px] font-bold text-red-500 text-center">4. Love Your Neighbor as Yourself</span>
+                    <p className="text-xs text-zinc-400 leading-relaxed text-center">We utilize practical empathy as our guiding framework for ethical living, asking: <span className="italic">&ldquo;How would I want to be treated in this situation?&rdquo;</span></p>
+                  </div>
+                </div>
+
+                <hr className="border-zinc-800 w-full max-w-2xl" />
+
+                <h2 className="font-cinzel text-base font-bold text-zinc-100 tracking-wider text-center">
+                  4. The Stellarium Way of Being and Doing
+                </h2>
+
+                <p className="text-xs text-zinc-400 leading-relaxed text-center max-w-4xl">
+                  To be an <span className="text-zinc-200 font-semibold">Honest Builder</span> within the Stellarium means adopting a specific mindset and operational protocol:
+                </p>
+
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-3 w-full max-w-4xl">
+                  <div className="bg-zinc-900/20 border border-zinc-900 rounded-xl p-4 space-y-1.5 text-center flex flex-col items-center">
+                    <span className="font-mono text-[10px] font-bold text-red-500 uppercase tracking-wider text-center">Systems Thinking</span>
+                    <p className="text-xs text-zinc-400 leading-relaxed text-center">We analyze the world as interconnected feedback loops. If a system is failing, we do not blame the individuals within it; we redesign the incentives using <span className="text-zinc-200 font-semibold">Structural Incentive Engineering (SIE)</span>.</p>
+                  </div>
+                  <div className="bg-zinc-900/20 border border-zinc-900 rounded-xl p-4 space-y-1.5 text-center flex flex-col items-center">
+                    <span className="font-mono text-[10px] font-bold text-red-500 uppercase tracking-wider text-center">Pragmatic Autonomy</span>
+                    <p className="text-xs text-zinc-400 leading-relaxed text-center">We are self-sovereign. We do not wait to be told what to do; we identify problems, design solutions, and execute.</p>
+                  </div>
+                  <div className="bg-zinc-900/20 border border-zinc-900 rounded-xl p-4 space-y-1.5 text-center flex flex-col items-center">
+                    <span className="font-mono text-[10px] font-bold text-red-500 uppercase tracking-wider text-center">Radical Financial Transparency</span>
+                    <p className="text-xs text-zinc-400 leading-relaxed text-center">Our governors and administrators are stewards, not owners, of the collective treasury. Every transaction, contribution, and expenditure is documented, verified, and made publicly accessible.</p>
+                  </div>
+                  <div className="bg-zinc-900/20 border border-zinc-900 rounded-xl p-4 space-y-1.5 text-center flex flex-col items-center">
+                    <span className="font-mono text-[10px] font-bold text-red-500 uppercase tracking-wider text-center">Low-Profile and High-Impact</span>
+                    <p className="text-xs text-zinc-400 leading-relaxed text-center">We avoid public grandstanding, ideological debates, and political posturing. We let our results, our software, and our economic outcomes speak for themselves.</p>
+                  </div>
+                </div>
+
+                <hr className="border-zinc-800 w-full max-w-2xl" />
+
+                <h2 className="font-cinzel text-base font-bold text-zinc-100 tracking-wider text-center">
+                  5. The Vision: Elevation to Eden
+                </h2>
+
+                <p className="text-xs text-zinc-400 leading-relaxed text-center max-w-4xl">
+                  Our ultimate trajectory is the <span className="text-zinc-200 font-semibold">Elevation to Eden</span>&mdash;a logical, technologically driven transition to a post-scarcity era. By automating routine labor and structuralizing the cost of essential services to zero, we unlock human potential, allowing individuals to focus entirely on higher pursuits: art, science, philosophy, and genuine human connection.
+                </p>
+
+                <p className="text-xs text-zinc-400 leading-relaxed text-center max-w-4xl">
+                  We do not wait for the future; we construct it, one thriving chapter at a time.
+                </p>
+
+                <hr className="border-zinc-800 w-full max-w-2xl border-t-2" />
+
+                <div className="bg-zinc-900/20 border border-zinc-900 rounded-xl p-5 space-y-4 text-center flex flex-col items-center w-full max-w-4xl">
+                  <h3 className="font-mono text-xs font-bold text-red-400 uppercase tracking-wider text-center">
+                    Explore the Ecosystem and Join the Mission:
+                  </h3>
+                  <ul className="space-y-3 text-center list-none w-full">
+                    <li className="text-xs text-zinc-400 text-center">
+                      <span className="text-zinc-200 font-semibold">The Stellarium Foundation Portal:</span><br />
+                      <a href="https://www.stellarium.ddns-ip.net" target="_blank" rel="noopener noreferrer" className="text-red-400 hover:text-red-300 underline underline-offset-2 font-mono text-[11px]">https://www.stellarium.ddns-ip.net</a>
+                    </li>
+                    <li className="text-xs text-zinc-400 text-center">
+                      <span className="text-zinc-200 font-semibold">Stellarium Literature &amp; Verified Supports:</span><br />
+                      <a href="https://www.stellarium.ddns-ip.net/supports" target="_blank" rel="noopener noreferrer" className="text-red-400 hover:text-red-300 underline underline-offset-2 font-mono text-[11px]">https://www.stellarium.ddns-ip.net/supports</a>
+                    </li>
+                    <li className="text-xs text-zinc-400 text-center">
+                      <span className="text-zinc-200 font-semibold">Water Enterprises Technology Hub:</span><br />
+                      <a href="https://water-enterprises-landing.onrender.com/" target="_blank" rel="noopener noreferrer" className="text-red-400 hover:text-red-300 underline underline-offset-2 font-mono text-[11px]">https://water-enterprises-landing.onrender.com/</a>
+                    </li>
+                    <li className="text-xs text-zinc-400 text-center">
+                      <span className="text-zinc-200 font-semibold">Water Classroom (Live Build):</span><br />
+                      <a href="https://waterclassroom.onrender.com/" target="_blank" rel="noopener noreferrer" className="text-red-400 hover:text-red-300 underline underline-offset-2 font-mono text-[11px]">https://waterclassroom.onrender.com/</a>
+                    </li>
+                    <li className="text-xs text-zinc-400 text-center">
+                      <span className="text-zinc-200 font-semibold">Water Party (Live MVP):</span><br />
+                      <a href="https://waterparty-react-14hr.onrender.com/" target="_blank" rel="noopener noreferrer" className="text-red-400 hover:text-red-300 underline underline-offset-2 font-mono text-[11px]">https://waterparty-react-14hr.onrender.com/</a>
+                    </li>
+                  </ul>
+                </div>
               </div>
             </div>
           </motion.div>

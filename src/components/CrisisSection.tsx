@@ -91,6 +91,303 @@ export default function CrisisSection() {
       status: "CRITICAL RECEPTION",
       dungeonSector: "Hotel Accor Front Room 402",
       notes: "Abducted during Phase 4 viral expansion. Direct priority target for the Phoenix Task Force rescue team."
+    },
+    {
+      name: "Lucas",
+      age: "41",
+      origin: "São Paulo, SP",
+      duration: "14 Months",
+      status: "ACTIVE BROADCAST",
+      dungeonSector: "Zona Norte Warehouse 7",
+      notes: "Former journalist who exposed syndicate money laundering. Subjected to forced confession loops and public neural humiliation."
+    },
+    {
+      name: "Isabella",
+      age: "22",
+      origin: "Fortaleza, CE",
+      duration: "6 Months",
+      status: "ACTIVE BROADCAST",
+      dungeonSector: "Praia de Iracema Safe Room",
+      notes: "University student abducted during protest crackdown. Used as interactive broadcast puppet for audience-directed torture."
+    },
+    {
+      name: "Marcus",
+      age: "45",
+      origin: "London, UK",
+      duration: "8 Months",
+      status: "MUTED CONSCIOUSNESS",
+      dungeonSector: "Canning Town Underground Bunker",
+      notes: "Human rights lawyer investigating the syndicate. Implant forcibly installed during extrajudicial rendition."
+    },
+    {
+      name: "Yuki",
+      age: "27",
+      origin: "Tokyo, Japan",
+      duration: "5 Months",
+      status: "ACTIVE BROADCAST",
+      dungeonSector: "Shinjuku Data Center Sub-Basement",
+      notes: "Software engineer whose neural mapping algorithms were reverse-engineered for the hijack. Kept for ongoing exploitation."
+    },
+    {
+      name: "Aisha",
+      age: "31",
+      origin: "Cairo, Egypt",
+      duration: "10 Months",
+      status: "CRITICAL RECEPTION",
+      dungeonSector: "Nasr City Telecom Vault",
+      notes: "Activist coordinating resistance networks across North Africa. Sustained severe neural damage during interrogation streams."
+    },
+    {
+      name: "Omar",
+      age: "16",
+      origin: "Rio de Janeiro, RJ",
+      duration: "2 Months",
+      status: "DECEASED / ARCHIVED",
+      dungeonSector: "Complexo do Alemão Node C",
+      notes: "Minor abducted as leverage. Neural overload during forced participation broadcast. Body recovered by favela resistance."
+    },
+    {
+      name: "Elena",
+      age: "38",
+      origin: "Barcelona, Spain",
+      duration: "12 Months",
+      status: "ACTIVE BROADCAST",
+      dungeonSector: "El Raval Safe House 3",
+      notes: "Neurologist who developed early implant rejection therapies. Targeted for elimination and experimental neural rewiring."
+    },
+    {
+      name: "David",
+      age: "55",
+      origin: "Nairobi, Kenya",
+      duration: "9 Months",
+      status: "MUTED CONSCIOUSNESS",
+      dungeonSector: "Industrial Area Shipping Container 22",
+      notes: "Humanitarian aid coordinator. Implant weaponized to broadcast trauma to entire refugee camp populations."
+    },
+    {
+      name: "Camila",
+      age: "24",
+      origin: "Buenos Aires, Argentina",
+      duration: "7 Months",
+      status: "ACTIVE BROADCAST",
+      dungeonSector: "La Boca Studio Sublevel",
+      notes: "Tango dancer and performance artist. Forced to perform degradation rituals streamed to South American nodes."
+    },
+    {
+      name: "Wei",
+      age: "33",
+      origin: "Beijing, China",
+      duration: "15 Months",
+      status: "DECEASED / ARCHIVED",
+      dungeonSector: "Chaoyang District Server Farm",
+      notes: "Cybersecurity analyst who mapped the original signal architecture. Executed after refusing to cooperate with syndicate engineers."
+    },
+    {
+      name: "Fatima",
+      age: "6",
+      origin: "Porto, Portugal",
+      duration: "4 Months",
+      status: "CRITICAL RECEPTION",
+      dungeonSector: "Matosinhos Industrial Dock 14",
+      notes: "Youngest known active broadcast victim. Syndicate using her signal as emotional manipulation payload for Portuguese nodes."
+    },
+    {
+      name: "Andrei",
+      age: "47",
+      origin: "Moscow, Russia",
+      duration: "11 Months",
+      status: "ACTIVE BROADCAST",
+      dungeonSector: "Khimki Bunker Complex",
+      notes: "Former FSB officer who leaked intelligence on syndicate connections. Subjected to recursive interrogation loops."
+    },
+    {
+      name: "Nadia",
+      age: "26",
+      origin: "Kiev, Ukraine",
+      duration: "8 Months",
+      status: "MUTED CONSCIOUSNESS",
+      dungeonSector: "Pechersk Sub-basement",
+      notes: "Medical doctor providing covert care to resistance operatives. Implant used to extract field hospital locations."
+    },
+    {
+      name: "Carlos",
+      age: "61",
+      origin: "Mexico City, Mexico",
+      duration: "13 Months",
+      status: "ACTIVE BROADCAST",
+      dungeonSector: "Iztapalapa Safe House Beta",
+      notes: "Retired judge who presided over early syndicate trials. Forced to preside over mock courts streamed as propaganda."
+    },
+    {
+      name: "Priya",
+      age: "30",
+      origin: "Mumbai, India",
+      duration: "6 Months",
+      status: "ACTIVE BROADCAST",
+      dungeonSector: "Dharavi Data Hub Node 4",
+      notes: "Tech entrepreneur whose decentralized mesh network posed a threat to syndicate control. Abducted during investor meeting."
+    },
+    {
+      name: "Henrik",
+      age: "43",
+      origin: "Stockholm, Sweden",
+      duration: "10 Months",
+      status: "DECEASED / ARCHIVED",
+      dungeonSector: "Södermalm Basement Cell",
+      notes: "Journalist documenting syndicate financial networks. Neural signature used to fabricate false confessions before termination."
+    },
+    {
+      name: "Amara",
+      age: "19",
+      origin: "Lagos, Nigeria",
+      duration: "5 Months",
+      status: "CRITICAL RECEPTION",
+      dungeonSector: "Lekki Tech Hub Vault B",
+      notes: "Engineering student who built a prototype jammer. Held as example to deter other inventors."
+    },
+    {
+      name: "Dmitri",
+      age: "50",
+      origin: "Minsk, Belarus",
+      duration: "14 Months",
+      status: "MUTED CONSCIOUSNESS",
+      dungeonSector: "Industrial Zone Warehouse 9",
+      notes: "Former military implant technician. Abducted for his knowledge of early resistance communication protocols."
+    },
+    {
+      name: "Lucia",
+      age: "35",
+      origin: "Lima, Peru",
+      duration: "8 Months",
+      status: "ACTIVE BROADCAST",
+      dungeonSector: "Miraflores Underground Vault",
+      notes: "Indigenous rights lawyer. Forced to participate in mock trials justifying resource extraction from protected lands."
+    },
+    {
+      name: "Hassan",
+      age: "28",
+      origin: "Amman, Jordan",
+      duration: "6 Months",
+      status: "ACTIVE BROADCAST",
+      dungeonSector: "Abdali District Safe House",
+      notes: "Medical student providing neural rehabilitation to rescued victims. Capture triggered by syndicate informant."
+    },
+    {
+      name: "Valentina",
+      age: "14",
+      origin: "Medellín, Colombia",
+      duration: "9 Months",
+      status: "CRITICAL RECEPTION",
+      dungeonSector: "Comuna 13 Underground Studio",
+      notes: "Abducted for her natural neural resistance. Subjected to experiments attempting to break her immunity to conditioning."
+    },
+    {
+      name: "Felix",
+      age: "67",
+      origin: "Berlin, Germany",
+      duration: "16 Months",
+      status: "DECEASED / ARCHIVED",
+      dungeonSector: "Friedrichshain Bunker 5",
+      notes: "Surviving founder of original Stellarium ethics board. Implant forcibly installed during home invasion. Died under interrogation."
+    },
+    {
+      name: "Maya",
+      age: "23",
+      origin: "Seoul, South Korea",
+      duration: "4 Months",
+      status: "ACTIVE BROADCAST",
+      dungeonSector: "Gangnam Server Basement 3",
+      notes: "VR developer whose neural interface patents were seized. Held for ongoing exploitation of her proprietary algorithms."
+    },
+    {
+      name: "Rafael",
+      age: "39",
+      origin: "Salvador, BA",
+      duration: "11 Months",
+      status: "MUTED CONSCIOUSNESS",
+      dungeonSector: "Pelourinho Safe House 2",
+      notes: "Community organizer who established first resistance shelter network. Neural patterns studied to design crowd control protocols."
+    },
+    {
+      name: "Sofia",
+      age: "20",
+      origin: "Lisbon, Portugal",
+      duration: "7 Months",
+      status: "ACTIVE BROADCAST",
+      dungeonSector: "Alcântara Docks Container 7",
+      notes: "Music student whose emotional resonance patterns were weaponized to amplify broadcast reception across Iberian Peninsula."
+    },
+    {
+      name: "Kwame",
+      age: "48",
+      origin: "Accra, Ghana",
+      duration: "10 Months",
+      status: "DECEASED / ARCHIVED",
+      dungeonSector: "Tema Industrial Zone Node",
+      notes: "Network engineer who maintained backup infrastructure for Stellarium. Tracked and eliminated by syndicate hit squad."
+    },
+    {
+      name: "Eva",
+      age: "36",
+      origin: "Prague, Czech Republic",
+      duration: "8 Months",
+      status: "CRITICAL RECEPTION",
+      dungeonSector: "Karlín Data Center Sub-basement",
+      notes: "Cryptographer working on signal decryption. Neural degradation from prolonged exposure to counter-encryption feedback loops."
+    },
+    {
+      name: "Tomas",
+      age: "58",
+      origin: "Vienna, Austria",
+      duration: "13 Months",
+      status: "MUTED CONSCIOUSNESS",
+      dungeonSector: "Leopoldstadt Privatklinik Bunker",
+      notes: "Neurosurgeon forced to perform implant installation surgeries on captured resistance members against his will."
+    },
+    {
+      name: "Leila",
+      age: "25",
+      origin: "Casablanca, Morocco",
+      duration: "5 Months",
+      status: "ACTIVE BROADCAST",
+      dungeonSector: "Old Medina Safe Room 9",
+      notes: "University researcher studying neural conditioning reversal. Abducted from her laboratory by syndicate intelligence unit."
+    },
+    {
+      name: "Erik",
+      age: "44",
+      origin: "Oslo, Norway",
+      duration: "12 Months",
+      status: "ACTIVE BROADCAST",
+      dungeonSector: "Grünerløkka Bunker Cell",
+      notes: "Former Stellarium regional director for Scandinavia. Forced to broadcast confessions implicating innocent colleagues."
+    },
+    {
+      name: "Chloe",
+      age: "12",
+      origin: "Paris, France",
+      duration: "6 Months",
+      status: "CRITICAL RECEPTION",
+      dungeonSector: "Montmartre Basement Studio",
+      notes: "Daughter of a resistance financier. Used as leverage to force compliance and as emotional broadcast payload."
+    },
+    {
+      name: "Ahmed",
+      age: "32",
+      origin: "Dubai, UAE",
+      duration: "9 Months",
+      status: "MUTED CONSCIOUSNESS",
+      dungeonSector: "Jebel Ali Port Container 44",
+      notes: "Blockchain developer whose decentralized ledger technology was co-opted for syndicate money laundering operations."
+    },
+    {
+      name: "Ingrid",
+      age: "57",
+      origin: "Copenhagen, Denmark",
+      duration: "15 Months",
+      status: "DECEASED / ARCHIVED",
+      dungeonSector: "Nordhavn Industrial Vault",
+      notes: "Neurology professor who discovered the implant backdoor mechanism. Executed before she could publish her findings."
     }
   ];
 
@@ -98,26 +395,68 @@ export default function CrisisSection() {
     {
       code: "Article 7(1)(a)",
       statute: "Rome Statute (Crimes Against Humanity)",
-      crime: "Murder & Extermination",
+      crime: "Murder",
       manifestation: "Systematic assassination of neural hosts in dungeon nodes when they are deemed no longer entertaining."
+    },
+    {
+      code: "Article 7(1)(b)",
+      statute: "Rome Statute (Crimes Against Humanity)",
+      crime: "Extermination",
+      manifestation: "Intentional infliction of conditions calculated to bring about the destruction of part of the population through sustained neural deprivation and organ harvesting."
+    },
+    {
+      code: "Article 7(1)(c)",
+      statute: "Rome Statute (Crimes Against Humanity)",
+      crime: "Enslavement",
+      manifestation: "Exercise of powers attaching to the right of ownership over victims, held as broadcast property in rotating dungeon cycles."
+    },
+    {
+      code: "Article 7(1)(d)",
+      statute: "Rome Statute (Crimes Against Humanity)",
+      crime: "Deportation or Forcible Transfer",
+      manifestation: "Forced displacement of victims across borders and regions to supply the global dungeon network with fresh targets."
     },
     {
       code: "Article 7(1)(e)",
       statute: "Rome Statute (Crimes Against Humanity)",
-      crime: "Severe Torture & Enslavement",
-      manifestation: "Deliberate infliction of continuous visceral pain and holding human consciousness as broadcast property."
+      crime: "Imprisonment & Severe Deprivation of Liberty",
+      manifestation: "Continuous confinement of victims in clandestine dungeon cells with complete sensory and motor control theft."
+    },
+    {
+      code: "Article 7(1)(f)",
+      statute: "Rome Statute (Crimes Against Humanity)",
+      crime: "Torture",
+      manifestation: "Intentional infliction of severe physical and mental pain upon victims in custody, streamed as broadcast entertainment."
     },
     {
       code: "Article 7(1)(g)",
       statute: "Rome Statute (Crimes Against Humanity)",
-      crime: "Rape & Sexual Slavery",
-      manifestation: "Continuous systematic sexual atrocities streamed live to 8 billion receivers from secure dungeon cells."
+      crime: "Rape & Sexual Violence",
+      manifestation: "Systematic rape, sexual slavery, enforced prostitution, and other sexual atrocities of comparable gravity streamed live to 8 billion receivers."
+    },
+    {
+      code: "Article 7(1)(h)",
+      statute: "Rome Statute (Crimes Against Humanity)",
+      crime: "Persecution",
+      manifestation: "Intentional and severe deprivation of fundamental rights targeting identifiable groups connected to the resistance and John Victor."
+    },
+    {
+      code: "Article 7(1)(i)",
+      statute: "Rome Statute (Crimes Against Humanity)",
+      crime: "Enforced Disappearance",
+      manifestation: "Arrest, detention, and abduction of persons followed by refusal to acknowledge their fate, removing them from the protection of the law."
+    },
+    {
+      code: "Article 7(1)(j)",
+      statute: "Rome Statute (Crimes Against Humanity)",
+      crime: "Apartheid",
+      manifestation: "Institutionalized regime of systematic oppression and domination by the syndicate class over the victim population."
     },
     {
       code: "Article 7(1)(k)",
       statute: "Rome Statute (Crimes Against Humanity)",
-      crime: "Inhumane Acts (Body Hijacking)",
-      manifestation: "Remote theft of physical motor control and forced sleep induction protocols via co-opted Stellarium firmware."
+      crime: "Other Inhumane Acts",
+      manifestation: "Remote theft of physical motor control and forced sleep induction protocols causing great suffering and serious injury to mental health."
     },
     {
       code: "Law 9.455/97",
@@ -250,6 +589,36 @@ export default function CrisisSection() {
         </div>
       </div>
 
+      {/* Crimes Against Humanity */}
+      <div className="bg-zinc-950/80 border border-zinc-900 rounded-2xl p-6 space-y-6 shadow-xl shadow-black/40 text-center flex flex-col items-center w-full">
+        <div className="flex items-center gap-2 border-b border-zinc-900 pb-4 justify-center w-full">
+          <BookOpen className="text-red-500" size={18} />
+          <h3 className="font-mono text-xs font-bold text-zinc-100 uppercase tracking-widest text-center">
+            Crimes Against Humanity
+          </h3>
+        </div>
+
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 w-full" id="legal-violations-grid">
+          {legalViolations.map((violation) => (
+            <div 
+              key={violation.code}
+              className="bg-zinc-900/10 border border-zinc-900 p-4 rounded-xl space-y-2 text-center flex flex-col items-center justify-center"
+            >
+              <div className="flex flex-col items-center justify-between gap-1 border-b border-zinc-850 pb-2 w-full text-center">
+                <span className="font-mono text-xs font-bold text-red-500 text-center">{violation.code}</span>
+                <span className="font-mono text-[9px] text-zinc-500 uppercase text-center">{violation.statute}</span>
+              </div>
+              <h4 className="font-mono text-xs font-bold text-zinc-200 uppercase tracking-wide text-center">
+                {violation.crime}
+              </h4>
+              <p className="text-xs text-zinc-400 leading-relaxed text-center">
+                {violation.manifestation}
+              </p>
+            </div>
+          ))}
+        </div>
+      </div>
+
       {/* Victims Ledger Registry */}
       <div className="bg-zinc-950/80 border border-zinc-900 rounded-2xl p-6 space-y-6 shadow-xl shadow-black/40 text-center flex flex-col items-center w-full">
         <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-b border-zinc-900 pb-4 w-full">
@@ -336,36 +705,6 @@ export default function CrisisSection() {
               No matching intelligence logs found.
             </div>
           )}
-        </div>
-      </div>
-
-      {/* Legal Rome Statute violations list */}
-      <div className="bg-zinc-950/80 border border-zinc-900 rounded-2xl p-6 space-y-6 shadow-xl shadow-black/40 text-center flex flex-col items-center w-full">
-        <div className="flex items-center gap-2 border-b border-zinc-900 pb-4 justify-center w-full">
-          <BookOpen className="text-red-500" size={18} />
-          <h3 className="font-mono text-xs font-bold text-zinc-100 uppercase tracking-widest text-center">
-            International War Crime Indictments (Legal Framework)
-          </h3>
-        </div>
-
-        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 w-full" id="legal-violations-grid">
-          {legalViolations.map((violation) => (
-            <div 
-              key={violation.code}
-              className="bg-zinc-900/10 border border-zinc-900 p-4 rounded-xl space-y-2 text-center flex flex-col items-center justify-center"
-            >
-              <div className="flex flex-col items-center justify-between gap-1 border-b border-zinc-850 pb-2 w-full text-center">
-                <span className="font-mono text-xs font-bold text-red-500 text-center">{violation.code}</span>
-                <span className="font-mono text-[9px] text-zinc-500 uppercase text-center">{violation.statute}</span>
-              </div>
-              <h4 className="font-mono text-xs font-bold text-zinc-200 uppercase tracking-wide text-center">
-                {violation.crime}
-              </h4>
-              <p className="text-xs text-zinc-400 leading-relaxed text-center">
-                {violation.manifestation}
-              </p>
-            </div>
-          ))}
         </div>
       </div>
     </motion.div>
