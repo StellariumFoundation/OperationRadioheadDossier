@@ -3,6 +3,21 @@ import { motion } from 'motion/react';
 import { Home, Brain, Skull, Heart, Terminal, Sparkles } from 'lucide-react';
 import { useLocation, useNavigate } from 'react-router-dom';
 
+function playNavTone() {
+  const ctx = new AudioContext();
+  const osc = ctx.createOscillator();
+  const gain = ctx.createGain();
+  osc.type = 'square';
+  osc.frequency.value = 120;
+  gain.gain.setValueAtTime(0.3, ctx.currentTime);
+  gain.gain.exponentialRampToValueAtTime(0.001, ctx.currentTime + 0.08);
+  osc.connect(gain);
+  gain.connect(ctx.destination);
+  osc.start(ctx.currentTime);
+  osc.stop(ctx.currentTime + 0.08);
+  ctx.close();
+}
+
 type ActiveTab = 'home' | 'psychology_controls' | 'stellarium' | 'crisis' | 'support' | 'contact';
 
 const PATH_TO_TAB: Record<string, ActiveTab> = {
@@ -27,7 +42,7 @@ export default function Navigation() {
         
         {/* Home Tab */}
         <motion.button
-          onClick={() => navigate('/home')}
+          onClick={() => { playNavTone(); navigate('/home'); }}
           whileHover={{
             skewX: [-3, 3, -1, 1, 0],
             scale: 1.03,
@@ -52,7 +67,7 @@ export default function Navigation() {
 
         {/* Psychology & Controls Tab */}
         <motion.button
-          onClick={() => navigate('/system')}
+          onClick={() => { playNavTone(); navigate('/system'); }}
           whileHover={{
             skewX: [-3, 3, -1, 1, 0],
             scale: 1.03,
@@ -77,7 +92,7 @@ export default function Navigation() {
 
         {/* Stellarium Tab */}
         <motion.button
-          onClick={() => navigate('/stellarium')}
+          onClick={() => { playNavTone(); navigate('/stellarium'); }}
           whileHover={{
             skewX: [-3, 3, -1, 1, 0],
             scale: 1.03,
@@ -102,7 +117,7 @@ export default function Navigation() {
 
         {/* Crisis Tab */}
         <motion.button
-          onClick={() => navigate('/crisis')}
+          onClick={() => { playNavTone(); navigate('/crisis'); }}
           whileHover={{
             skewX: [-3, 3, -1, 1, 0],
             scale: 1.03,
@@ -127,7 +142,7 @@ export default function Navigation() {
 
         {/* Support Tab */}
         <motion.button
-          onClick={() => navigate('/support')}
+          onClick={() => { playNavTone(); navigate('/support'); }}
           whileHover={{
             skewX: [-3, 3, -1, 1, 0],
             scale: 1.03,
@@ -152,7 +167,7 @@ export default function Navigation() {
 
         {/* Contact Tab */}
         <motion.button
-          onClick={() => navigate('/contact')}
+          onClick={() => { playNavTone(); navigate('/contact'); }}
           whileHover={{
             skewX: [-3, 3, -1, 1, 0],
             scale: 1.03,

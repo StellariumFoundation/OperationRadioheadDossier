@@ -54,7 +54,7 @@ jobs:
         run: bun run build
 
       - name: Upload dist Artifact
-        uses: actions/upload-pages-artifact@v3
+        uses: actions/upload-pages-artifact@v5
         with:
           path: ./dist
 
@@ -69,7 +69,7 @@ jobs:
     steps:
       - name: Deploy to GitHub Pages
         id: deployment
-        uses: actions/deploy-pages@v4
+        uses: actions/deploy-pages@v5
 
   build-android-capacitor:
     name: Build Android (APK & AAB)
@@ -143,7 +143,7 @@ jobs:
 
   build-ios:
     name: Build iOS (Simulator)
-    runs-on: macos-latest
+    runs-on: macos-26
     steps:
       - name: Checkout Code
         uses: actions/checkout@v6
