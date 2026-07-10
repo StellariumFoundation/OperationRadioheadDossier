@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useRef, useCallback } from 'react';
 import { AnimatePresence } from 'motion/react';
 import { gsap } from 'gsap';
+import { useLocation, useNavigate } from 'react-router-dom';
 
 // Components
 import InteractiveCanvas from './components/InteractiveCanvas';
@@ -19,10 +20,35 @@ import Navigation from './components/Navigation';
 
 export type ActiveTab = 'home' | 'psychology_controls' | 'stellarium' | 'crisis' | 'support' | 'contact';
 
+const ROUTE_TO_TAB: Record<string, ActiveTab> = {
+  '/home': 'home',
+  '/system': 'psychology_controls',
+  '/stellarium': 'stellarium',
+  '/crisis': 'crisis',
+  '/support': 'support',
+  '/contact': 'contact',
+};
+
+const TAB_TO_ROUTE: Record<ActiveTab, string> = {
+  home: '/home',
+  psychology_controls: '/system',
+  stellarium: '/stellarium',
+  crisis: '/crisis',
+  support: '/support',
+  contact: '/contact',
+};
+
+function tabFromPath(path: string): ActiveTab {
+  return ROUTE_TO_TAB[path] || 'home';
+}
+
 import VictimMemorialCard from './components/VictimMemorialCard';
 
 export default function App() {
-  const [activeTab, setActiveTab] = useState<ActiveTab>('home');
+  const location = useLocation();
+  const navigate = useNavigate();
+
+  const [activeTab, setActiveTab] = useState<ActiveTab>(() => tabFromPath(location.pathname));
   const hasInteracted = useRef(false);
 
   useEffect(() => {
@@ -122,6 +148,15 @@ export default function App() {
     window.scrollTo(0, savedPos);
   }, [activeTab]);
 
+  // Sync activeTab when user navigates via browser back/forward
+  useEffect(() => {
+    const tabFromRoute = tabFromPath(location.pathname);
+    if (tabFromRoute !== activeTab) {
+      scrollPositions.current[activeTab] = window.scrollY;
+      setActiveTab(tabFromRoute);
+    }
+  }, [location.pathname]);
+
   // Handle high-fidelity GSAP exit transition before switching tabs
   const changeTab = (nextTab: ActiveTab) => {
     if (nextTab === activeTab) return;
@@ -178,10 +213,12 @@ export default function App() {
         ease: 'power2.in',
         onComplete: () => {
           setActiveTab(nextTab);
+          navigate(TAB_TO_ROUTE[nextTab]);
         }
       });
     } else {
       setActiveTab(nextTab);
+      navigate(TAB_TO_ROUTE[nextTab]);
     }
   };
 
@@ -223,7 +260,7 @@ export default function App() {
         </AnimatePresence>
       </main>
 
-      <Navigation activeTab={activeTab} changeTab={changeTab} />
+      <Navigation />
 
       <BackgroundAudioPlayer />
       <BloodSplatterBackground />

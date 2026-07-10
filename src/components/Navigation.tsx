@@ -1,15 +1,23 @@
 import React from 'react';
 import { motion } from 'motion/react';
 import { Home, Brain, Skull, Heart, Terminal, Sparkles } from 'lucide-react';
+import { useLocation, useNavigate } from 'react-router-dom';
 
 type ActiveTab = 'home' | 'psychology_controls' | 'stellarium' | 'crisis' | 'support' | 'contact';
 
-interface NavigationProps {
-  activeTab: ActiveTab;
-  changeTab: (nextTab: ActiveTab) => void;
-}
+const PATH_TO_TAB: Record<string, ActiveTab> = {
+  '/home': 'home',
+  '/system': 'psychology_controls',
+  '/stellarium': 'stellarium',
+  '/crisis': 'crisis',
+  '/support': 'support',
+  '/contact': 'contact',
+};
 
-export default function Navigation({ activeTab, changeTab }: NavigationProps) {
+export default function Navigation() {
+  const location = useLocation();
+  const navigate = useNavigate();
+  const activeTab: ActiveTab = PATH_TO_TAB[location.pathname] || 'home';
   return (
     <nav 
       className="fixed bottom-0 left-0 w-full z-40 bg-zinc-950/90 backdrop-blur-lg border-t border-red-950/40 pt-3 pb-[calc(env(safe-area-inset-bottom)+0.75rem)] shadow-2xl shadow-black/100"
@@ -19,7 +27,7 @@ export default function Navigation({ activeTab, changeTab }: NavigationProps) {
         
         {/* Home Tab */}
         <motion.button
-          onClick={() => changeTab('home')}
+          onClick={() => navigate('/home')}
           whileHover={{
             skewX: [-3, 3, -1, 1, 0],
             scale: 1.03,
@@ -44,7 +52,7 @@ export default function Navigation({ activeTab, changeTab }: NavigationProps) {
 
         {/* Psychology & Controls Tab */}
         <motion.button
-          onClick={() => changeTab('psychology_controls')}
+          onClick={() => navigate('/system')}
           whileHover={{
             skewX: [-3, 3, -1, 1, 0],
             scale: 1.03,
@@ -69,7 +77,7 @@ export default function Navigation({ activeTab, changeTab }: NavigationProps) {
 
         {/* Stellarium Tab */}
         <motion.button
-          onClick={() => changeTab('stellarium')}
+          onClick={() => navigate('/stellarium')}
           whileHover={{
             skewX: [-3, 3, -1, 1, 0],
             scale: 1.03,
@@ -94,7 +102,7 @@ export default function Navigation({ activeTab, changeTab }: NavigationProps) {
 
         {/* Crisis Tab */}
         <motion.button
-          onClick={() => changeTab('crisis')}
+          onClick={() => navigate('/crisis')}
           whileHover={{
             skewX: [-3, 3, -1, 1, 0],
             scale: 1.03,
@@ -119,7 +127,7 @@ export default function Navigation({ activeTab, changeTab }: NavigationProps) {
 
         {/* Support Tab */}
         <motion.button
-          onClick={() => changeTab('support')}
+          onClick={() => navigate('/support')}
           whileHover={{
             skewX: [-3, 3, -1, 1, 0],
             scale: 1.03,
@@ -144,7 +152,7 @@ export default function Navigation({ activeTab, changeTab }: NavigationProps) {
 
         {/* Contact Tab */}
         <motion.button
-          onClick={() => changeTab('contact')}
+          onClick={() => navigate('/contact')}
           whileHover={{
             skewX: [-3, 3, -1, 1, 0],
             scale: 1.03,

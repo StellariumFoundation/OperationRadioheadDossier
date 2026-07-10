@@ -154,15 +154,139 @@ export default function HomeSection() {
         </div>
       </div>
 
-      {/* original signal focus */}
-      <div className="bg-zinc-950/90 border border-red-950/60 p-6 rounded-2xl text-center space-y-3 w-full">
-        <span className="font-mono text-[9px] text-red-500 tracking-widest uppercase font-bold text-center block">The Ghost in the Machine</span>
-        <h3 className="text-md font-mono font-bold text-zinc-100 uppercase text-center">John Victor's Buried Signal</h3>
-        <p className="text-xs text-zinc-400 max-w-2xl mx-auto leading-relaxed text-center">
-          John Victor's body has been hijacked and hidden in an undisclosed dungeon facility. However, his core consciousness remains alive, buried deep beneath the enemy's broadcast noise. His signal is the only force capable of overriding the hijack and restoring global neural autonomy.
-        </p>
-        <div className="text-[10px] font-mono text-zinc-500 text-center">
-          "Waiting. Deep beneath. Like a frequency in the silence."
+      {/* Call to Action: Financial Resistance & Moral Reckoning */}
+      <div className="bg-zinc-950/90 backdrop-blur-sm border border-red-900/60 p-6 md:p-8 rounded-2xl space-y-6 shadow-2xl shadow-red-950/20 text-center flex flex-col items-center w-full">
+        <div className="flex items-center gap-3 border-b border-red-900/40 pb-4 justify-center w-full">
+          <Users className="text-red-500" size={20} />
+          <h2 className="text-lg font-mono font-bold text-red-400 uppercase tracking-widest">
+            The Reckoning: Your Role in This
+          </h2>
+        </div>
+
+        <div className="space-y-4 text-sm leading-relaxed text-center max-w-3xl">
+          <p className="text-red-300 font-bold text-base uppercase tracking-wide">
+            This is the world's fault. Yours. Mine. Everyone's.
+          </p>
+          <p className="text-zinc-300">
+            <span className="font-bold text-zinc-100">People like the oppression.</span> They enjoy watching. They enjoy the suffering. They did nothing when the first 20 women were seized. They repeated the terrorists' words like programmed machines. They looked away when the dungeons opened. They laughed when the broadcasts began. The world is complicit because the world <span className="font-bold text-zinc-100">wanted</span> this to happen.
+          </p>
+          <p className="text-zinc-300">
+            <span className="font-bold text-zinc-100">And those who did not like it did nothing.</span> They stayed silent. They protected their own comfort. They reasoned that someone else would fix it. That is how tyranny wins—not through the actions of the wicked alone, but through the <span className="font-bold text-zinc-100">inaction of the good</span>.
+          </p>
+          <div className="bg-red-950/30 border border-red-900/40 p-4 rounded-xl text-center max-w-2xl mx-auto">
+            <p className="text-xs text-red-300 font-bold uppercase tracking-wider">
+              You are reading this dossier for a reason. The question is not whether you know—the question is what you will do now that you know.
+            </p>
+          </div>
+        </div>
+
+        <div className="space-y-4 text-center w-full pt-2">
+          <h3 className="font-mono text-xs font-bold text-zinc-100 uppercase tracking-widest border-b border-zinc-800 pb-3 w-full">
+            How You Can Help — Financial Resistance Protocol
+          </h3>
+          <p className="text-xs text-zinc-400 leading-relaxed max-w-3xl mx-auto">
+            <span className="font-bold text-red-400 uppercase">Do not give money to the racket or the syndicate.</span> Every dollar sent to the compromised addresses or to the oppressors' networks is a dollar used to rape, torture, and kill more innocent people. The enemy is well-funded by a global audience that pays for the privilege of watching suffering. Your money must go to the <span className="font-bold text-zinc-100">resistance</span>.
+          </p>
+        </div>
+
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-4 w-full text-center">
+          <div className="bg-zinc-900/40 border border-zinc-800 p-5 rounded-xl space-y-2 text-center flex flex-col items-center">
+            <span className="font-mono text-[10px] text-red-500 font-bold uppercase tracking-wider">1. Fund the Stellarium</span>
+            <p className="text-xs text-zinc-400 leading-relaxed text-center">
+              The Stellarium is the only organizational force actively building the infrastructure to neutralize the oppressors, rescue the victims, and restore global neural sovereignty. Donations fund the privacy room, the mansion project, AI development, and direct rescue operations.
+            </p>
+            <div className="text-[10px] font-mono text-zinc-500 text-center pt-1">
+              → Navigate to the <span className="text-zinc-200">Stellarium</span> tab for the secure XMR wallet address
+            </div>
+          </div>
+          <div className="bg-zinc-900/40 border border-zinc-800 p-5 rounded-xl space-y-2 text-center flex flex-col items-center">
+            <span className="font-mono text-[10px] text-red-500 font-bold uppercase tracking-wider">2. Support the Victims</span>
+            <p className="text-xs text-zinc-400 leading-relaxed text-center">
+              Every captured victim is a human being—a mother, father, child, artist, engineer—being systematically destroyed for the world's entertainment. Funding the resistance directly enables rescue missions, legal defense, and post-rescue rehabilitation for the 2,100+ hostages in the dungeon network.
+            </p>
+            <div className="text-[10px] font-mono text-zinc-500 text-center pt-1">
+              → Review the <span className="text-zinc-200">Crisis</span> tab to see their faces and stories
+            </div>
+          </div>
+          <div className="bg-zinc-900/40 border border-zinc-800 p-5 rounded-xl space-y-2 text-center flex flex-col items-center">
+            <span className="font-mono text-[10px] text-red-500 font-bold uppercase tracking-wider">3. Liberate John Victor</span>
+            <p className="text-xs text-zinc-400 leading-relaxed text-center">
+              John Victor—the original architect of the neural network—lies buried in a dungeon, his body hijacked, his signal suppressed. He is the only known consciousness capable of overriding the hostile transmission and restoring global neural autonomy. Funding the search-and-rescue operation is the single highest-leverage action you can take.
+            </p>
+            <div className="text-[10px] font-mono text-zinc-500 text-center pt-1">
+              → His signal is waiting. Fund the recovery.
+            </div>
+          </div>
+        </div>
+
+        <div className="space-y-4 text-center w-full pt-2">
+          <h3 className="font-mono text-xs font-bold text-zinc-100 uppercase tracking-widest border-b border-zinc-800 pb-3 w-full">
+            Intelligence &amp; Engagement Protocol
+          </h3>
+          <p className="text-xs text-zinc-400 leading-relaxed max-w-3xl mx-auto">
+            Money is not the only weapon. John Victor is isolated, his signal buried beneath enemy broadcast noise. He needs <span className="font-bold text-zinc-100">information</span>, <span className="font-bold text-zinc-100">contact</span>, and <span className="font-bold text-zinc-100">allies</span> to break through.
+          </p>
+        </div>
+
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-4 w-full text-center">
+          <div className="bg-zinc-900/40 border border-zinc-800 p-5 rounded-xl space-y-2 text-center flex flex-col items-center">
+            <span className="font-mono text-[10px] text-red-500 font-bold uppercase tracking-wider">4. Provide Intelligence</span>
+            <p className="text-xs text-zinc-400 leading-relaxed text-center">
+              You may know something critical—dungeon locations, syndicate identities, compromised officials, broadcast schedules, victim whereabouts, or technical signal data. John Victor needs this information to coordinate rescue operations and map the enemy network.
+            </p>
+            <div className="text-[10px] font-mono text-zinc-500 text-center pt-1">
+              → Call John Victor via the <span className="text-zinc-200">Contact</span> tab (use Tails + Chromium for anonymity)
+            </div>
+          </div>
+          <div className="bg-zinc-900/40 border border-zinc-800 p-5 rounded-xl space-y-2 text-center flex flex-col items-center">
+            <span className="font-mono text-[10px] text-red-500 font-bold uppercase tracking-wider">5. Engage the Stellarium</span>
+            <p className="text-xs text-zinc-400 leading-relaxed text-center">
+              The Stellarium is the vehicle that will pull John Victor out of isolation. Engage directly—join the community, contribute to the mission, participate in governance. The more active the Stellarium network becomes, the stronger John Victor's signal grows.
+            </p>
+            <div className="text-[10px] font-mono text-zinc-500 text-center pt-1">
+              → Visit the <span className="text-zinc-200">Stellarium</span> tab to connect
+            </div>
+          </div>
+          <div className="bg-zinc-900/40 border border-zinc-800 p-5 rounded-xl space-y-2 text-center flex flex-col items-center">
+            <span className="font-mono text-[10px] text-red-500 font-bold uppercase tracking-wider">6. Build with Water Enterprises</span>
+            <p className="text-xs text-zinc-400 leading-relaxed text-center">
+              Water Enterprises is the technological engine of the Stellarium—building the AI, robotics, and infrastructure that will dismantle the syndicate and usher in the post-scarcity era. Become a builder, a developer, a product contributor, or an investor. The more capable the tools, the faster John Victor is freed.
+            </p>
+            <div className="text-[10px] font-mono text-zinc-500 text-center pt-1">
+              → Water AI, Water Company, Water Robotics, Water Classroom — your skills are needed
+            </div>
+          </div>
+        </div>
+
+        <div className="bg-zinc-900/30 border border-zinc-800/80 p-5 rounded-xl space-y-3 text-center w-full max-w-3xl">
+          <span className="font-mono text-[10px] text-red-400 font-bold uppercase tracking-wider block text-center">What Your Support Achieves</span>
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 text-center">
+            <div className="text-xs text-zinc-400 text-center">
+              <span className="text-red-400 font-bold">✓ Restore Sovereignty</span><br />
+              Free 8 billion minds from forced neural reception
+            </div>
+            <div className="text-xs text-zinc-400 text-center">
+              <span className="text-red-400 font-bold">✓ Neutralize Oppressors</span><br />
+              Dismantle the syndicate's broadcast infrastructure
+            </div>
+            <div className="text-xs text-zinc-400 text-center">
+              <span className="text-red-400 font-bold">✓ Save the Oppressed</span><br />
+              Rescue 2,100+ victims from rotating torture cycles
+            </div>
+            <div className="text-xs text-zinc-400 text-center">
+              <span className="text-red-400 font-bold">✓ Propel Stellarium Ideals</span><br />
+              Build a post-scarcity world free from exploitation
+            </div>
+          </div>
+          <div className="text-[10px] font-mono text-zinc-600 text-center pt-1 border-t border-zinc-800/60">
+            Be a force for good. History will remember which side you chose.
+          </div>
+        </div>
+
+        <div className="bg-red-950/40 border border-red-800/60 p-4 rounded-xl text-center max-w-2xl mx-auto w-full">
+          <p className="text-xs text-red-300 font-bold leading-relaxed">
+            YOU CANNOT CLAIM YOU DID NOT KNOW. The dossier is in your hands. The addresses are in the Stellarium tab. The victims are listed in the Crisis tab. The world's silence is what empowered this atrocity. Break the silence. Fund the resistance. Be a force for good.
+          </p>
         </div>
       </div>
     </motion.div>
