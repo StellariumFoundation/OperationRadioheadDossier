@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { motion } from 'motion/react';
-import { ShieldAlert, BookOpen, Skull, UserCheck, Search, Filter } from 'lucide-react';
+import { ShieldAlert, BookOpen, Skull, UserCheck, Search, Filter, Flame } from 'lucide-react';
+import { triggerHaptic } from '../utils/haptics';
 
 interface VictimCase {
   name: string;
@@ -21,6 +22,29 @@ interface LawViolation {
 
 export default function CrisisSection() {
   const [searchQuery, setSearchQuery] = useState<string>('');
+  const [rememberedVictims, setRememberedVictims] = useState<string[]>(() => {
+    try {
+      return JSON.parse(localStorage.getItem('remembered_victims') || '[]');
+    } catch {
+      return [];
+    }
+  });
+
+  const handleToggleRemembrance = (name: string) => {
+    setRememberedVictims((prev) => {
+      let next;
+      if (prev.includes(name)) {
+        next = prev.filter(n => n !== name);
+        triggerHaptic('light');
+      } else {
+        next = [...prev, name];
+        triggerHaptic('victimRemembrance');
+      }
+      localStorage.setItem('remembered_victims', JSON.stringify(next));
+      return next;
+    });
+  };
+
   
   const victimLedger: VictimCase[] = [
     {
@@ -251,39 +275,61 @@ export default function CrisisSection() {
 
         {/* Victims Grid list */}
         <div className="space-y-3 w-full animate-fade-in" id="victims-grid-list">
-          {filteredVictims.map((victim) => (
-            <div 
-              key={victim.name}
-              className="bg-zinc-900/30 border border-zinc-900 hover:border-zinc-800/80 p-4 rounded-xl space-y-3 transition-colors text-center flex flex-col items-center justify-center"
-            >
-              <div className="flex flex-col sm:flex-row items-center justify-between gap-2 border-b border-zinc-850 pb-2 w-full text-center">
-                <div className="flex flex-col sm:flex-row items-center gap-2 text-center w-full justify-center">
-                  <span className="font-mono text-xs font-bold text-zinc-200 text-center">{victim.name}</span>
-                  <span className="text-[10px] font-mono text-zinc-500 text-center">Age {victim.age} • {victim.origin}</span>
+          {filteredVictims.map((victim) => {
+            const isRemembered = rememberedVictims.includes(victim.name);
+            return (
+              <div 
+                key={victim.name}
+                className="bg-zinc-900/30 border border-zinc-900 hover:border-zinc-800/80 p-4 rounded-xl space-y-3 transition-colors text-center flex flex-col items-center justify-center"
+              >
+                <div className="flex flex-col sm:flex-row items-center justify-between gap-2 border-b border-zinc-850 pb-2 w-full text-center">
+                  <div className="flex flex-col sm:flex-row items-center gap-2 text-center w-full justify-center">
+                    <span className="font-mono text-xs font-bold text-zinc-200 text-center">
+                      {victim.name} {isRemembered && <span className="text-red-500 animate-pulse ml-1">✦</span>}
+                    </span>
+                    <span className="text-[10px] font-mono text-zinc-500 text-center">Age {victim.age} • {victim.origin}</span>
+                  </div>
+                  <div className="flex flex-col sm:flex-row items-center gap-2 font-mono text-[9px] text-center w-full justify-center mt-1 sm:mt-0">
+                    <span className="text-zinc-500 text-center">Sector: {victim.dungeonSector}</span>
+                    <span className={`px-2 py-0.5 rounded border text-center ${
+                      victim.status.includes('ACTIVE') 
+                        ? 'bg-red-950/50 text-red-400 border-red-900/50' 
+                        : victim.status.includes('DECEASED')
+                          ? 'bg-zinc-950 text-zinc-600 border-zinc-900'
+                          : 'bg-amber-950/50 text-amber-400 border-amber-900/50'
+                    }`}>
+                      {victim.status}
+                    </span>
+                  </div>
                 </div>
-                <div className="flex flex-col sm:flex-row items-center gap-2 font-mono text-[9px] text-center w-full justify-center mt-1 sm:mt-0">
-                  <span className="text-zinc-500 text-center">Sector: {victim.dungeonSector}</span>
-                  <span className={`px-2 py-0.5 rounded border text-center ${
-                    victim.status.includes('ACTIVE') 
-                      ? 'bg-red-950/50 text-red-400 border-red-900/50' 
-                      : victim.status.includes('DECEASED')
-                        ? 'bg-zinc-950 text-zinc-600 border-zinc-900'
-                        : 'bg-amber-950/50 text-amber-400 border-amber-900/50'
-                  }`}>
-                    {victim.status}
+                <div className="grid grid-cols-1 gap-2 text-xs text-center w-full justify-center">
+                  <div className="font-mono text-[10px] text-zinc-500 text-center">
+                    CAPTURED DURATION: <span className="text-red-500 font-bold">{victim.duration}</span>
+                  </div>
+                  <div className="text-zinc-400 leading-relaxed text-center max-w-2xl mx-auto">
+                    {victim.notes}
+                  </div>
+                </div>
+                {/* Remembrance Haptic Trigger */}
+                <div className="flex justify-between items-center w-full border-t border-zinc-900/50 pt-2.5 mt-1 flex-col sm:flex-row gap-2">
+                  <span className="text-[9px] font-mono text-zinc-500 uppercase">
+                    {isRemembered ? "● MEMORY HONORED IN LOCAL RESISTANCE COGNITIVE BUFFER" : "MEMORIAL STATUS: UNRECORDED"}
                   </span>
+                  <button
+                    onClick={() => handleToggleRemembrance(victim.name)}
+                    className={`px-3 py-1 rounded-lg border text-[10px] font-mono tracking-wider uppercase transition-all cursor-pointer flex items-center gap-1.5 ${
+                      isRemembered
+                        ? 'bg-red-950/40 border-red-900/60 text-red-400 font-bold shadow-md shadow-red-950/20'
+                        : 'bg-zinc-900/60 border-zinc-850 text-zinc-400 hover:text-zinc-200 hover:bg-zinc-900 hover:border-zinc-700'
+                    }`}
+                  >
+                    <Flame size={10} className={isRemembered ? "animate-pulse text-red-500" : "text-zinc-500"} />
+                    {isRemembered ? 'Tribute Honored' : 'Honor Memory'}
+                  </button>
                 </div>
               </div>
-              <div className="grid grid-cols-1 gap-2 text-xs text-center w-full justify-center">
-                <div className="font-mono text-[10px] text-zinc-500 text-center">
-                  CAPTURED DURATION: <span className="text-red-500 font-bold">{victim.duration}</span>
-                </div>
-                <div className="text-zinc-400 leading-relaxed text-center max-w-2xl mx-auto">
-                  {victim.notes}
-                </div>
-              </div>
-            </div>
-          ))}
+            );
+          })}
 
           {filteredVictims.length === 0 && (
             <div className="text-center py-8 font-mono text-xs text-zinc-500">

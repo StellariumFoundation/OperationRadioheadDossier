@@ -142,13 +142,12 @@ export default function StellariumSection() {
     }
   ];
 
-  const copyAddressToClipboard = () => {
-    const tempInput = document.createElement("textarea");
-    tempInput.value = xmrAddress;
-    document.body.appendChild(tempInput);
-    tempInput.select();
-    document.execCommand("copy");
-    document.body.removeChild(tempInput);
+  const copyAddressToClipboard = async () => {
+    try {
+      await navigator.clipboard.writeText(xmrAddress);
+    } catch {
+      return;
+    }
     setCopiedXmr(true);
     setTimeout(() => setCopiedXmr(false), 2000);
   };

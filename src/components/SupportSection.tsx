@@ -1,15 +1,7 @@
 import React, { useState } from 'react';
 import { motion } from 'motion/react';
-import { ShieldCheck, Compass, Landmark, Coins, Copy, Check, Wallet, Landmark as BankIcon } from 'lucide-react';
-
-interface Sanctuary {
-  id: string;
-  name: string;
-  location: string;
-  capacity: string;
-  status: string;
-  features: string[];
-}
+import { ShieldCheck, Landmark, Coins, Copy, Check, Wallet, Landmark as BankIcon, RefreshCw, Award } from 'lucide-react';
+import { triggerHaptic } from '../utils/haptics';
 
 interface BankAccount {
   id: string;
@@ -21,11 +13,47 @@ interface BankAccount {
 export default function SupportSection() {
   const [copiedKey, setCopiedKey] = useState<string | null>(null);
   const [activeBankId, setActiveBankId] = useState<string>('cayman');
+  const [donationAmount, setDonationAmount] = useState<string>('500');
+  const [donationCurrency, setDonationCurrency] = useState<string>('USD');
+  const [isConfirming, setIsConfirming] = useState<boolean>(false);
+  const [confirmedDonations, setConfirmedDonations] = useState<{ id: string, amount: string, currency: string, timestamp: string }[]>(() => {
+    try {
+      return JSON.parse(localStorage.getItem('confirmed_donations') || '[]');
+    } catch {
+      return [];
+    }
+  });
 
   const handleCopy = (text: string, key: string) => {
     navigator.clipboard.writeText(text);
     setCopiedKey(key);
+    triggerHaptic('light');
     setTimeout(() => setCopiedKey(null), 2000);
+  };
+
+  const handleConfirmDonation = (e: React.FormEvent) => {
+    e.preventDefault();
+    if (!donationAmount || isConfirming) return;
+
+    setIsConfirming(true);
+    triggerHaptic('medium'); // Tap on button click
+
+    setTimeout(() => {
+      const newDonation = {
+        id: `OP-TX-${Math.floor(100000 + Math.random() * 900000)}-${Math.random().toString(16).substring(2, 6).toUpperCase()}`,
+        amount: donationAmount,
+        currency: donationCurrency,
+        timestamp: new Date().toLocaleTimeString()
+      };
+
+      const updated = [newDonation, ...confirmedDonations].slice(0, 5); // Keep last 5 entries
+      setConfirmedDonations(updated);
+      localStorage.setItem('confirmed_donations', JSON.stringify(updated));
+      setIsConfirming(false);
+      
+      // Trigger specialized cascading haptic pattern for positive receipt
+      triggerHaptic('donationConfirm');
+    }, 1200);
   };
 
   const xmrAddress = "44u8KhinKQ4SgpxwS5jq3cJBMWVsWnMHaGMqYp8abTw3iAJW5izBm9V7uoNVcXAeWS6UqUzVdrn2qAtH4Epd5RkoDJxtRaL";
@@ -96,33 +124,6 @@ export default function SupportSection() {
       title: "Polish Zloty (PLN)",
       bankName: "Revolut Technologies Singapore Pte. Ltd",
       details: "Beneficiary: Eliabe Matos Da Silva\nAccount: 6120621849\nBIC/SWIFT: REVOSGS2\nAddress: 6 Battery Road, Floor 6-01, 049909, Singapore, Singapore"
-    }
-  ];
-
-  const sanctuaries: Sanctuary[] = [
-    {
-      id: "sanctuary-1",
-      name: "Caelum Shield Sanctuary",
-      location: "Northern Hemisphere Sector A",
-      capacity: "1,200 slots",
-      status: "SECURE & ACTIVE",
-      features: ["Full EMP perimeter shielding", "Food & medical reserves for 18 months", "Independent water filtration"]
-    },
-    {
-      id: "sanctuary-2",
-      name: "Andean Refuge Node 14",
-      location: "South American Sector G",
-      capacity: "650 slots",
-      status: "SECURE & ACTIVE",
-      features: ["Multiple Guardian Angel jammers", "Underground basalt insulation", "Hydroponic food production"]
-    },
-    {
-      id: "sanctuary-3",
-      name: "Oceanic Vault Sector E",
-      location: "Pacific Marine Deep Node",
-      capacity: "2,000 slots",
-      status: "AT MAXIMUM CAPACITY",
-      features: ["Subsurface Faraday insulation", "Direct fiber-link reporting", "Surgical trauma care suite"]
     }
   ];
 
@@ -280,7 +281,86 @@ export default function SupportSection() {
               </button>
             </div>
           </div>
+
+          {/* Simulated Haptic Donation Confirmation Widget */}
+          <div className="bg-zinc-900/10 border border-zinc-900 p-5 rounded-xl space-y-4 shadow-inner text-center flex flex-col items-center w-full max-w-2xl mt-4">
+            <div className="flex items-center gap-2 border-b border-zinc-900 pb-2 w-full justify-center">
+              <Award className="text-red-500 animate-pulse" size={15} />
+              <span className="font-mono text-xs text-zinc-200 uppercase font-bold tracking-wider">
+                Confirm Sovereign Deposit Handshake
+              </span>
+            </div>
+            <p className="text-[11px] text-zinc-400 leading-relaxed text-center">
+              Initiated a transfer offline using the bank coordinates above or Monero? Record your deposit below to register your operational support token and test tactile handset telemetry.
+            </p>
+
+            <form onSubmit={handleConfirmDonation} className="flex flex-col sm:flex-row items-center justify-center gap-3 w-full">
+              <div className="flex items-center bg-zinc-950 border border-zinc-900 rounded-lg px-2.5 py-1.5 w-full sm:w-auto">
+                <input
+                  type="number"
+                  min="1"
+                  max="50000"
+                  value={donationAmount}
+                  onChange={(e) => setDonationAmount(e.target.value)}
+                  className="bg-transparent text-xs text-zinc-200 focus:outline-none font-mono text-center w-24"
+                  placeholder="Amount"
+                  required
+                />
+                <select
+                  value={donationCurrency}
+                  onChange={(e) => setDonationCurrency(e.target.value)}
+                  className="bg-transparent text-xs text-zinc-400 font-mono border-l border-zinc-900 pl-2 focus:outline-none text-center cursor-pointer"
+                >
+                  <option value="USD">USD ($)</option>
+                  <option value="XMR">XMR (ɱ)</option>
+                  <option value="EUR">EUR (€)</option>
+                  <option value="BRL">BRL (R$)</option>
+                  <option value="GBP">GBP (£)</option>
+                </select>
+              </div>
+
+              <button
+                type="submit"
+                disabled={isConfirming}
+                className={`w-full sm:w-auto px-4 py-1.5 rounded-lg border text-xs font-mono tracking-wider uppercase transition-all cursor-pointer flex items-center justify-center gap-1.5 ${
+                  isConfirming
+                    ? 'bg-zinc-950 border-zinc-900 text-zinc-500'
+                    : 'bg-red-950/40 border-red-900 text-red-400 hover:bg-red-950/60 hover:text-red-300'
+                }`}
+              >
+                {isConfirming ? (
+                  <>
+                    <RefreshCw size={12} className="animate-spin" />
+                    <span>Transmitting...</span>
+                  </>
+                ) : (
+                  <span>Register Deposit</span>
+                )}
+              </button>
+            </form>
+
+            {/* Confirmed list */}
+            {confirmedDonations.length > 0 && (
+              <div className="w-full text-center mt-2 pt-2 border-t border-zinc-900/60">
+                <span className="font-mono text-[8px] text-zinc-500 uppercase tracking-widest block mb-1 text-center">
+                  Active Verified Handshake Ledger Receipts (Last 5)
+                </span>
+                <div className="space-y-1.5 max-h-36 overflow-y-auto pr-1">
+                  {confirmedDonations.map((item) => (
+                    <div key={item.id} className="flex justify-between items-center bg-zinc-950/40 border border-zinc-900 px-3 py-1.5 rounded-lg text-[10px] font-mono text-center flex-col sm:flex-row gap-1">
+                      <span className="text-zinc-500 text-center sm:text-left">{item.id}</span>
+                      <div className="flex gap-2 items-center justify-center">
+                        <span className="text-emerald-400 font-bold">+{item.amount} {item.currency}</span>
+                        <span className="text-zinc-600">({item.timestamp})</span>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            )}
+          </div>
         </div>
+
 
         {/* The book quote section */}
         <div className="mt-6 border-t border-zinc-900 pt-4 w-full">
@@ -348,47 +428,6 @@ export default function SupportSection() {
               </ul>
             </div>
           </div>
-        </div>
-      </div>
-
-      {/* Sanctuary Network Directory */}
-      <div className="bg-zinc-950/80 border border-zinc-900 rounded-2xl p-6 space-y-6 shadow-xl shadow-black/40 text-center flex flex-col items-center w-full">
-        <div className="flex items-center gap-2 border-b border-zinc-900 pb-4 justify-center w-full">
-          <Compass className="text-emerald-500" size={18} />
-          <h3 className="font-mono text-xs font-bold text-zinc-100 uppercase tracking-widest text-center">
-            Verified Resistance Sanctuary Network (~200 Global Nodes)
-          </h3>
-        </div>
-
-        <div className="space-y-4 w-full text-center" id="sanctuary-nodes-grid">
-          {sanctuaries.map((s) => (
-            <div 
-              key={s.id} 
-              className="bg-zinc-900/20 border border-zinc-900 p-4 rounded-xl space-y-3 hover:border-zinc-800 transition-all text-center flex flex-col items-center"
-            >
-              <div className="flex flex-col sm:flex-row items-center justify-between gap-2 border-b border-zinc-850 pb-2 w-full">
-                <div className="flex flex-col sm:flex-row items-center gap-2 justify-center mx-auto sm:mx-0">
-                  <span className="font-mono text-xs font-bold text-zinc-200 uppercase tracking-wide text-center">{s.name}</span>
-                  <span className="text-[10px] font-mono text-zinc-500 text-center">{s.location}</span>
-                </div>
-                <div className="flex items-center gap-3 justify-center mx-auto sm:mx-0">
-                  <span className="text-[10px] font-mono text-zinc-500">{s.capacity}</span>
-                  <span className="px-2 py-0.5 rounded text-[9px] font-mono bg-emerald-950/30 text-emerald-400 border border-emerald-900/50">
-                    {s.status}
-                  </span>
-                </div>
-              </div>
-
-              <div className="grid grid-cols-1 sm:grid-cols-3 gap-2 w-full text-center">
-                {s.features.map((feat, idx) => (
-                  <div key={idx} className="bg-zinc-950/40 p-2 rounded border border-zinc-900 text-[10px] text-zinc-400 flex gap-2 justify-center items-center text-center">
-                    <span className="text-emerald-500 font-bold">•</span>
-                    <span className="text-center">{feat}</span>
-                  </div>
-                ))}
-              </div>
-            </div>
-          ))}
         </div>
       </div>
 

@@ -1,0 +1,7 @@
+<?xml version='1.0' encoding='utf-8'?>
+<resources>
+    <string name="app_name">Operation Radiohead</string>
+    <string name="title_activity_main">Operation Radiohead</string>
+    <string name="package_name">com.operationradiohead.app</string>
+    <string name="custom_url_scheme">com.operationradiohead.app</string>
+</resources>

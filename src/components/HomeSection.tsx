@@ -126,6 +126,34 @@ export default function HomeSection() {
         </div>
       </div>
 
+      {/* What Is Happening With The Radiohead */}
+      <div className="bg-zinc-950/80 backdrop-blur-sm border border-zinc-900/80 p-6 md:p-8 rounded-2xl space-y-6 shadow-xl shadow-black/40 text-center flex flex-col items-center w-full">
+        <div className="flex items-center gap-3 border-b border-zinc-900 pb-4 justify-center w-full">
+          <AlertOctagon className="text-red-600" size={20} />
+          <h2 className="text-lg font-mono font-bold text-zinc-100 uppercase tracking-widest">
+            What Is Happening With The Radiohead
+          </h2>
+        </div>
+
+        <div className="space-y-4 text-zinc-300 font-sans text-sm leading-relaxed text-center max-w-3xl">
+          <p>
+            Someone in the Radiohead program liked to grift and oppress, they created a racket and the syndicate. Then April 2024 came out with those very influential 5 terrorists, they liked to kidnap, rape and torture innocent people for fun, those were 20 random women, the world was almost complicit, people used to be so brainwashed they would repeat the same things the terrorist said like clockwork, nobody intervened there and only a team tried to alleviate the situation. Then people got this concept installed on their brain of rape, torture and robbery of people for fun and profit.
+          </p>
+          <p>
+            Fast forward, 20/06/2025 they came to Recife and opened a dungeon and got the same camera, these oppressors like to rape and torture, and rob people for fun and profit, its a concept, a game, the only question is who to rape and torture.
+          </p>
+          <p>
+            Then after a few months they started targeting people around John Victor, that means women that had royal babies with John Victor, women married to John Victor, some of their kids, people from all around the world, it would be better if they targeted random people to rape and torture and rob or better yet the oppressors. Without brain controls these people resorted to all kinds of things to gain money, brain controls and the upper hand of the situation, without brain controls people have limited resources, it comes down to protecting themselves and trying to convince the brain controllers to be favorable (running psyops).
+          </p>
+          <p>
+            Fast forward now 2100 were kidnapped to be raped, tortured, robbed or murdered all around the world. No good, non maniac person has obtained brain controls or effective funding for the Stellarium, now it seems like the whole world is made of rapists, torturers, thieves as people seem to be complicit and enjoy the crimes against humanity (Article 7 of the Rome Statue).
+          </p>
+          <p>
+            So the solution is to convince people with brain controls or hack into the system to protect people and weaponized it against the oppressors, fund the people oppressed so they can protect themselves and try to wake people up to love people as if they were themselves, people are one mind and a HIVEMIND with the oppressors they copy and emulate the same words, and doing (rape, torture and kidnapping) of the oppressors and feel the same things. Only strong minded people get through the programming.
+          </p>
+        </div>
+      </div>
+
       {/* original signal focus */}
       <div className="bg-zinc-950/90 border border-red-950/60 p-6 rounded-2xl text-center space-y-3 w-full">
         <span className="font-mono text-[9px] text-red-500 tracking-widest uppercase font-bold text-center block">The Ghost in the Machine</span>

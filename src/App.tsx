@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect, useRef, useCallback } from 'react';
 import { AnimatePresence } from 'motion/react';
 import { gsap } from 'gsap';
 
@@ -19,8 +19,28 @@ import Navigation from './components/Navigation';
 
 export type ActiveTab = 'home' | 'psychology_controls' | 'stellarium' | 'crisis' | 'support' | 'contact';
 
+import VictimMemorialCard from './components/VictimMemorialCard';
+
 export default function App() {
   const [activeTab, setActiveTab] = useState<ActiveTab>('home');
+  const hasInteracted = useRef(false);
+
+  useEffect(() => {
+    const mark = () => { hasInteracted.current = true; };
+    window.addEventListener('click', mark, { once: true });
+    window.addEventListener('keydown', mark, { once: true });
+    window.addEventListener('touchstart', mark, { once: true });
+    return () => {
+      window.removeEventListener('click', mark);
+      window.removeEventListener('keydown', mark);
+      window.removeEventListener('touchstart', mark);
+    };
+  }, []);
+
+  const safeVibrate = useCallback((pattern: number | number[]) => {
+    if (!hasInteracted.current) return;
+    if (navigator.vibrate) navigator.vibrate(pattern);
+  }, []);
 
   // Track and persist the scroll state of each tab individually
   const scrollPositions = useRef<Record<ActiveTab, number>>({
@@ -37,7 +57,27 @@ export default function App() {
     gsap.fromTo(
       '.exhibition-frame',
       { opacity: 0 },
-      { opacity: 1, duration: 1.2, ease: 'power2.out' }
+      { 
+        opacity: 1, 
+        duration: 1.2, 
+        ease: 'power2.out',
+        onComplete: () => {
+          // Subtle, rhythmic breathing heartbeat effect
+          const heartbeat = gsap.timeline({ repeat: -1 });
+          heartbeat
+            .to('.exhibition-frame', { 
+              scale: 1.002, opacity: 0.98, duration: 0.15, ease: 'power1.out',
+              onStart: () => safeVibrate(10)
+            })
+            .to('.exhibition-frame', { scale: 1, opacity: 1, duration: 0.15, ease: 'power1.in' })
+            .to('.exhibition-frame', { 
+              scale: 1.004, opacity: 0.96, duration: 0.2, ease: 'power1.out',
+              onStart: () => safeVibrate([10, 30, 15])
+            })
+            .to('.exhibition-frame', { scale: 1, opacity: 1, duration: 0.6, ease: 'power1.in' })
+            .to('.exhibition-frame', { duration: 1.8 }); // Rest
+        }
+      }
     );
   }, []);
 
@@ -88,30 +128,29 @@ export default function App() {
 
     // Play a loud square wave 808 style pop sound
     try {
+      safeVibrate(50);
+      
       const AudioContextClass = window.AudioContext || (window as any).webkitAudioContext;
       if (AudioContextClass) {
         const ctx = new AudioContextClass();
+        ctx.resume(); // Ensure context is running after user interaction
+        
         const osc = ctx.createOscillator();
         const gainNode = ctx.createGain();
-        const filterNode = ctx.createBiquadFilter();
         
         osc.type = 'square';
         osc.frequency.setValueAtTime(120, ctx.currentTime);
-        osc.frequency.exponentialRampToValueAtTime(20, ctx.currentTime + 0.2);
         
-        filterNode.type = 'lowpass';
-        filterNode.frequency.setValueAtTime(300, ctx.currentTime);
-        filterNode.frequency.exponentialRampToValueAtTime(40, ctx.currentTime + 0.2);
+        // Very loud, short pulse
+        gainNode.gain.setValueAtTime(1.0, ctx.currentTime);
+        gainNode.gain.setValueAtTime(1.0, ctx.currentTime + 0.03);
+        gainNode.gain.linearRampToValueAtTime(0.01, ctx.currentTime + 0.05);
         
-        gainNode.gain.setValueAtTime(1.2, ctx.currentTime);
-        gainNode.gain.exponentialRampToValueAtTime(0.01, ctx.currentTime + 0.2);
-        
-        osc.connect(filterNode);
-        filterNode.connect(gainNode);
+        osc.connect(gainNode);
         gainNode.connect(ctx.destination);
         
         osc.start();
-        osc.stop(ctx.currentTime + 0.2);
+        osc.stop(ctx.currentTime + 0.05);
       }
     } catch (e) {
       // Ignore if audio context is not supported or blocked
@@ -178,7 +217,7 @@ export default function App() {
       <Header changeTab={changeTab} />
 
       {/* 4. Main Body Page Space */}
-      <main className="relative z-20 pt-20 exhibition-frame">
+      <main className="relative z-20 pt-8 exhibition-frame">
         <AnimatePresence mode="wait">
           {renderActiveSection()}
         </AnimatePresence>
@@ -189,6 +228,7 @@ export default function App() {
       <BackgroundAudioPlayer />
       <BloodSplatterBackground />
       <ScrollProgress activeTab={activeTab} />
+      <VictimMemorialCard />
 
     </div>
   );
