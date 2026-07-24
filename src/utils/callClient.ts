@@ -4,7 +4,7 @@ export type CallState = 'idle' | 'calling' | 'in_call' | 'ended' | 'no_answer' |
 
 type Listener = () => void;
 
-const CALL_SERVER = 'https://callerserver.onrender.com';
+const CALL_SERVER = 'https://callserver-jyzl.onrender.com';
 
 const decoder = new TextDecoder();
 
